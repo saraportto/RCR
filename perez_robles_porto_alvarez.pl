@@ -23,17 +23,17 @@ opcion(marte, condiciones_atmosfericas, regular).
 opcion(saturno, condiciones_atmosfericas, buena).
 opcion(venus, condiciones_atmosfericas, muy_buena).
 
-% Presupuesto maximo disponible
-opcion(luna, presupuesto, 5000).
-opcion(marte, presupuesto, 10000).
-opcion(saturno, presupuesto, 30000).
-opcion(venus, presupuesto, 15000).
+% Presupuesto maximo disponible (millones de dólares)
+opcion(luna, presupuesto, 30000).
+opcion(marte, presupuesto, 100000).
+opcion(saturno, presupuesto, 3000000).
+opcion(venus, presupuesto, 1500000).
 
-% Distancia maxima de la Tierra (en kilómetros)
+% Distancia maxima de la Tierra (kilómetros)
 opcion(luna, distancia_tierra, 384400).
-opcion(marte, distancia_tierra, 225000000).
-opcion(saturno, distancia_tierra, 1275000000).
-opcion(venus, distancia_tierra, 26100000).
+opcion(marte, distancia_tierra, 301470000).
+opcion(saturno, distancia_tierra, 1548900000).
+opcion(venus, distancia_tierra, 251820000).
 
 % Riesgos ambientales (actividad volcánica)
 opcion(luna, riesgos_ambientales, sin_riesgos).
@@ -109,68 +109,146 @@ decision([[GravedadMin, GravedadMax], Temperatura, [TiempoMin, TiempoMax], Condi
     subdecision_radiacion(Radiacion, Destino),
     subdecision_satelites(Satelites, Destino).
 
-
-
 % Definir subdecisiones para cada parámetro
 subdecision_gravedad(GravedadMin, GravedadMax, Destino) :-
     opcion(Destino, gravedad, Gravedad),
-    Gravedad >= GravedadMin,
-    Gravedad =< GravedadMax.
+    (   nonvar(GravedadMin),
+        Gravedad >= GravedadMin
+
+    ;   var(GravedadMin)
+    ),
+    (   nonvar(GravedadMax),
+        Gravedad =< GravedadMax
+
+    ;   var(GravedadMax)
+    ).
 
 
 subdecision_temperatura(Lista, Destino) :-
     opcion(Destino, temperatura, Temperatura),
-    member(Temperatura, Lista).
+    (   var(Lista)
+    ;   member(Temperatura, Lista)
+    ).
+
 
 subdecision_tiempo_viaje(TiempoMin, TiempoMax, Destino) :-
     opcion(Destino, tiempo_viaje, TiempoViaje),
-    TiempoViaje >= TiempoMin,
-    TiempoViaje =< TiempoMax.
+    (   nonvar(TiempoMin),
+        TiempoViaje >= TiempoMin
+
+    ;   var(TiempoMin)
+    ),
+    (   nonvar(TiempoMax),
+        TiempoViaje =< TiempoMax
+
+    ;   var(TiempoMax)
+    ).
+
 
 subdecision_condiciones_atmosfericas(Lista, Destino) :-
-    opcion(Destino, condiciones_atmosfericas, CondicionAtm),
-    member(CondicionAtm, Lista).
+    (   var(Lista) ->  
+        opcion(Destino, condiciones_atmosfericas, Lista)
+
+    ;   opcion(Destino, condiciones_atmosfericas, CondicionAtm),
+        member(CondicionAtm, Lista)
+    ).
+
 
 subdecision_presupuesto(PresuMax, Destino) :-
     opcion(Destino, presupuesto, Presu),
-    Presu =< PresuMax.
+    (   nonvar(PresuMax),
+        Presu =< PresuMax
+
+    ;   var(PresuMax)
+    ).
+
 
 subdecision_distancia_tierra(DistMax, Destino) :-
     opcion(Destino, distancia_tierra, Dist),
-    Dist =< DistMax.
+    (   nonvar(DistMax),
+        Dist =< DistMax
+
+    ;   var(DistMax)
+    ).
+
 
 subdecision_riesgos_ambientales(Lista, Destino) :-
-    opcion(Destino, riesgos_ambientales, RiesgosAmb),
-    member(RiesgosAmb, Lista).
+    (   var(Lista) ->  
+        opcion(Destino, riesgos_ambientales, Lista)
+
+    ;   opcion(Destino, riesgos_ambientales, RiesgiosAmb),
+        member(RiesgiosAmb, Lista)
+    ).
+
 
 subdecision_habitabilidad(Lista, Destino) :-
-    opcion(Destino, habitabilidad, Habitabilidad),
-    member(Habitabilidad, Lista).
+    (   var(Lista) ->  
+        opcion(Destino, habitabilidad, Lista)
+
+    ;   opcion(Destino, habitabilidad, Habitabilidad),
+        member(Habitabilidad, Lista)
+    ).
+
 
 subdecision_size(Lista, Destino) :-
-    opcion(Destino, size, Size),
-    member(Size, Lista).
+    (   var(Lista) ->  
+        opcion(Destino, size, Lista)
+
+    ;   opcion(Destino, size, Size),
+        member(Size, Lista)
+    ).
+
 
 subdecision_luminosidad(Lista, Destino) :-
-    opcion(Destino, luminosidad, Luminosidad),
-    member(Lista, Luminosidad).
+    (   var(Lista) ->  
+        opcion(Destino, luminosidad, Lista)
+
+    ;   opcion(Destino, luminosidad, Luminosidad),
+        member(Luminosidad, Lista)
+    ).
+
 
 subdecision_biodiversidad(Lista, Destino) :-
-    opcion(Destino, biodiversidad, Biodiversidad),
-    member(Lista, Biodiversidad).
+    (   var(Lista) ->  
+        opcion(Destino, biodiversidad, Lista)
+
+    ;   opcion(Destino, biodiversidad, Biodiversidad),
+        member(Biodiversidad, Lista)
+    ).
+
 
 subdecision_composicion(Lista, Destino) :-
-    opcion(Destino, composicion, Composicion),
-    member(Lista, Composicion).
+    (   var(Lista) ->  
+        opcion(Destino, composicion, Lista)
+
+    ;   opcion(Destino, composicion, Composicion),
+        member(Composicion, Lista)
+    ).
+
 
 subdecision_atmosfera(Lista, Destino) :-
-    opcion(Destino, atmosfera, Atmosfera),
-    member(Atmosfera, Lista).
+    (   var(Lista) ->  
+        opcion(Destino, atmosfera, Lista)
+        
+    ;   opcion(Destino, atmosfera, Atmosfera),
+        member(Atmosfera, Lista)
+    ).
+
 
 subdecision_radiacion(Lista, Destino) :-
-    opcion(Destino, radiacion, Radiacion),
-    member(Radiacion, Lista).
+    (   var(Lista) ->  
+        opcion(Destino, radiacion, Lista)
+
+    ;   opcion(Destino, radiacion, Radiacion),
+        member(Radiacion, Lista)
+    ).
+
 
 subdecision_satelites(Lista, Destino) :-
-    opcion(Destino, satelites, Satelites),
-    member(Satelites, Lista).
+    (   var(Lista) ->  
+        opcion(Destino, satelites, Lista)
+
+    ;   opcion(Destino, satelites, Satelites),
+        member(Satelites, Lista)
+    ).
+
