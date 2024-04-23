@@ -17,52 +17,34 @@
 \
 3. Tiempo del viaje: tomar\'e1 un rango de valores\
 \
-
-\f0\b 4. Cantidad de radiaci\'f3n en la superficie: ser\'e1 multivalorada y podr\'e1 tomar valores como mucho nula, baja, moderada y alta\
-
-\f1\b0 \
-
-\f0\b 5. Condiciones atmosf\'e9ricas: ser\'e1 multivalorado y podr\'e1 tomar valores como mala, regular, buena, muy buena\
-
-\f1\b0 \
+4. Cantidad de radiaci\'f3n en la superficie: ser\'e1 multivalorada y podr\'e1 tomar valores como mucho nula, baja, moderada y alta\
+\
+5. Condiciones atmosf\'e9ricas: ser\'e1 multivalorado y podr\'e1 tomar valores como mala, regular, buena, muy buena\
+\
 6. Presupuesto m\'e1ximo disponible: tomar\'e1 un valor num\'e9rico (tendr\'e1 que ser menor que el presupuesto para viajar al planeta)\
 \pard\pardeftab720\partightenfactor0
 \cf0 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 \cf0 7. Distancia m\'e1xima de la Tierra: tomar\'e1 un valor num\'e9rico (tendr\'e1 que ser menor que la distancia al planeta desde la tierra)\
 \
-
-\f0\b 8. Composici\'f3n del planeta:  multivalorado y con valores como Rocoso, Gaseoso, Arenoso, Met\'e1lico, Helado, L\'edquido, Volc\'e1nico, Cristalino, S\'f3lido, Lodoso\
-
-\f1\b0 \
-
-\f0\b 9. Riesgos ambientales (actividad volc\'e1nica): dos valores sin riesgos, con riesgos\
-
-\f1\b0 \
-
-\f0\b 10. Habitabilidad: multivalorado y con valores como nula, poca, regular, buena, excelente\
+8. Composici\'f3n del planeta:  multivalorado y con valores como Rocoso, Gaseoso, Arenoso, Met\'e1lico, Helado, L\'edquido, Volc\'e1nico, Cristalino, S\'f3lido, Lodoso\
+\
+9. Riesgos ambientales (actividad volc\'e1nica): dos valores sin riesgos, con riesgos\
+\
+10. Habitabilidad: multivalorado y con valores como nula, poca, regular, buena, excelente
+\f0\b \
 
 \f1\b0 \
-
-\f0\b 11. Cantidad de sat\'e9lites naturales: ser\'e1 multivalorado y podr\'e1 tomar valores como ninguno, pocos, algunos, muchos\
-
-\f1\b0 \
-
-\f0\b 12. Tama\'f1o: ser\'e1 multivalorado y podr\'e1 tomar valores como grande mediano y peque\'f1o (en funci\'f3n de su radio)\
-
-\f1\b0 \
-
-\f0\b 13. Luminosidad: ser\'e1 multivalorado y podr\'e1 tomar valores como totalmente oscuro, un poco oscuro, un poco luminoso y bastante luminoso\
-
-\f1\b0 \
-
-\f0\b 14. Atm\'f3sfera: dos valores sin atmosfera, con atmosfera\
-
-\f1\b0 \
-
-\f0\b 15. Biodiversidad: ser\'e1 multivalorado y podr\'e1 tomar valores como nada biodiverso, poco biodiverso, biodiverso, muy biodiverso\
-
-\f1\b0 \
+11. Cantidad de sat\'e9lites naturales: ser\'e1 multivalorado y podr\'e1 tomar valores como ninguno, pocos, algunos, muchos\
+\
+12. Tama\'f1o: ser\'e1 multivalorado y podr\'e1 tomar valores como grande mediano y peque\'f1o (en funci\'f3n de su radio)\
+\
+13. Luminosidad: ser\'e1 multivalorado y podr\'e1 tomar valores como totalmente oscuro, un poco oscuro, un poco luminoso y bastante luminoso\
+\
+14. Atm\'f3sfera: dos valores sin atmosfera, con atmosfera\
+\
+15. Biodiversidad: ser\'e1 multivalorado y podr\'e1 tomar valores como nada biodiverso, poco biodiverso, biodiverso, muy biodiverso\
+\
 \
 \
 decision([[X1, X2], [Y1|Y2], Z], Decision) :-\
@@ -86,21 +68,21 @@ subdecision_caracteristica_fuzzy(Z, Decision) :-\
 \pard\pardeftab720\sa400\partightenfactor0
 
 \f2\fs32 \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 Las funciones 
+Las funciones 
 \f3\fs28 var/1
 \f2\fs32  y 
 \f3\fs28 nonvar/1
 \f2\fs32  son predicados en Prolog que se utilizan para verificar si un t\'e9rmino es una variable o no.\
 \pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
 \ls1\ilvl0
-\f3\fs28 \cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 var/1
+\f3\fs28 \cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+var/1
 \f2\fs32 : Este predicado es verdadero si su argumento es una variable no instanciada. En otras palabras, devuelve verdadero si el t\'e9rmino no tiene un valor asociado, es decir, si es una variable no instanciada.\cb1 \
 \ls1\ilvl0
-\f3\fs28 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 nonvar/1
+\f3\fs28 \cb3 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+nonvar/1
 \f2\fs32 : Este predicado es verdadero si su argumento no es una variable no instanciada. Devuelve verdadero si el t\'e9rmino no es una variable no instanciada, es decir, si ya tiene un valor asociado.\cb1 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \
 }

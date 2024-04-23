@@ -125,11 +125,12 @@ subdecision_gravedad(GravedadMin, GravedadMax, Destino) :-
 
 
 subdecision_temperatura(Lista, Destino) :-
-    opcion(Destino, temperatura, Temperatura),
-    (   var(Lista)
-    ;   member(Temperatura, Lista)
-    ).
+    (   var(Lista) ->  
+        opcion(Destino, temperatura, Lista)
 
+    ;   opcion(Destino, temperatura, Temperatura),
+        member(Temperatura, Lista)
+    ).
 
 subdecision_tiempo_viaje(TiempoMin, TiempoMax, Destino) :-
     opcion(Destino, tiempo_viaje, TiempoViaje),
@@ -252,3 +253,5 @@ subdecision_satelites(Lista, Destino) :-
         member(Satelites, Lista)
     ).
 
+% decision([[_, _], _, _, _, _, _, _, _, _, _, _, _, _, _, _], Destino).
+% consult("perez_robles_porto_alvarez.pl").
