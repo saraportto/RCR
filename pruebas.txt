@@ -1,0 +1,71 @@
+consult("perez_robles_porto_alvarez.pl").
+
+subdecision_gravedad(Destino, [1, 10]).
+subdecision_gravedad(Destino, [1.5, 3]).
+subdecision_gravedad(Destino, [_, 10]).
+subdecision_gravedad(Destino, [1, _]).
+subdecision_gravedad(Destino, [_, _]).
+
+subdecision_temperatura(Destino, [_]).
+subdecision_temperatura(Destino, [frio]).
+subdecision_temperatura(Destino, [frio, mucho_frio]).
+subdecision_temperatura(Destino, [mucho_frio, frio]).
+
+subdecision_tiempo_de_viaje(Destino, [1, 10]).
+subdecision_tiempo_de_viaje(Destino, [_, 10]).
+subdecision_tiempo_de_viaje(Destino, [1, _]).
+subdecision_tiempo_de_viaje(Destino, [_, _]).
+
+subdecision_condiciones_atmosfericas(Destino, [_]).
+subdecision_condiciones_atmosfericas(Destino, [mala]).
+subdecision_condiciones_atmosfericas(Destino, [buena, muy_buena]).
+
+subdecision_presu(Destino, _).
+subdecision_presu(Destino, 1000000).
+subdecision_presu(Destino, 36000).
+
+subdecision_distancia(Destino, _).
+subdecision_distancia(Destino, 400000000).
+
+subdecision_riesgos_ambientales(Destino, _).
+subdecision_riesgos_ambientales(Destino, con_riesgos).
+subdecision_riesgos_ambientales(Destino, sin_riesgos).
+
+subdecision_habitabilidad(Destino, [_]).
+subdecision_habitabilidad(Destino, [nula]).
+subdecision_habitabilidad(Destino, [regular, buena, asiyugqwi]).
+
+subdecision_size(Destino, [_]).
+subdecision_size(Destino, [pequeno]).
+subdecision_size(Destino, [pequeno, mediano]).
+
+subdecision_luminosidad(Destino, [_]).
+subdecision_luminosidad(Destino, [un_poco_oscuro]).
+subdecision_luminosidad(Destino, [aiushdsi]).
+subdecision_luminosidad(Destino, [totalmente_oscuro, un_poco_luminoso]).
+
+subdecision_biodiversidad(Destino, [_]).
+subdecision_biodiversidad(Destino, [nada_biodiverso]).
+subdecision_biodiversidad(Destino, [muy_biodiverso, biodiverso]).
+
+subdecision_composicion(Destino, [_]).
+subdecision_composicion(Destino, [rocoso]).
+subdecision_composicion(Destino, [gaseoso, arenoso]).
+
+subdecision_atmosfera(Destino, _).
+subdecision_atmosfera(Destino, con_atmosfera).
+subdecision_atmosfera(Destino, sin_atmosfera).
+
+subdecision_radiacion(Destino, [_]).
+subdecision_radiacion(Destino, [nula]).
+subdecision_radiacion(Destino, [nula, baja, moderada]).
+
+subdecision_satelites(Destino, [_]).
+subdecision_satelites(Destino, [ninguno]).
+subdecision_satelites(Destino, [muchos, algunos]).
+
+
+decision([[_, _], [_], [_, _], [_], _, _, _, [_], [_], [_], [_], [_], _, [_], [_]], Destino).
+decision([[_, _], [mucho_frio], [_, _], [_], _, _, _, [_], [_], [_], [_], [_], _, [_], [_]], Destino).
+decision([[1, 3], [mucho_frio], [_, _], [_], _, _, _, [_], [_], [_], [_], [_], _, [_], [_]], Destino).
+decision([[1, 10], [_], [5, 10], [_], _, _, _, [_], [_], [_], [_], [_], _, [_], [_]], Destino).
