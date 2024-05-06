@@ -29,7 +29,7 @@ decision([[GravedadMin, GravedadMax], Temperatura, [TiempoMin, TiempoMax], Condi
     subdecision_atmosfera(Destino, Atmosfera, ScoreAtmos),
     subdecision_radiacion(Destino, Radiacion, ScoreRad),
     subdecision_satelites(Destino, Satelites, ScoreSat),
-    Score is ScoreGrav + ScoreTemp + ScoreTiempo + ScoreAtm + ScorePresu + ScoreDist + ScoreRiesgos + ScoreHab + ScoreSize + ScoreLum + ScoreBio + ScoreComp + ScoreAtmos + ScoreRad + ScoreSat.
+    Score is ((ScoreGrav + ScoreTemp + ScoreTiempo + ScoreAtm + ScorePresu + ScoreDist + ScoreRiesgos + ScoreHab + ScoreSize + ScoreLum + ScoreBio + ScoreComp + ScoreAtmos + ScoreRad + ScoreSat)/15)*100.
 
 
 % GRAVEDAD
