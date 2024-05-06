@@ -1,71 +1,138 @@
 consult("perez_robles_porto_alvarez.pl").
 
-subdecision_gravedad(Destino, [1, 10]).
-subdecision_gravedad(Destino, [1.5, 3]).
-subdecision_gravedad(Destino, [_, 10]).
-subdecision_gravedad(Destino, [1, _]).
-subdecision_gravedad(Destino, [_, _]).
+subdecision_gravedad(Destino, [1, 10], Score).
+subdecision_gravedad(Destino, [1.5, 3], Score).
+subdecision_gravedad(Destino, [_, 10], Score).
+subdecision_gravedad(Destino, [1, _], Score).
+subdecision_gravedad(Destino, [_, _], Score).
 
-subdecision_temperatura(Destino, [_]).
-subdecision_temperatura(Destino, [frio]).
-subdecision_temperatura(Destino, [frio, mucho_frio]).
-subdecision_temperatura(Destino, [mucho_frio, frio]).
+subdecision_temperatura(Destino, [_], Score).
+subdecision_temperatura(Destino, [frio], Score).
+subdecision_temperatura(Destino, [frio, mucho_frio], Score).
+subdecision_temperatura(Destino, [mucho_frio, frio], Score).
 
-subdecision_tiempo_de_viaje(Destino, [1, 10]).
-subdecision_tiempo_de_viaje(Destino, [_, 10]).
-subdecision_tiempo_de_viaje(Destino, [1, _]).
-subdecision_tiempo_de_viaje(Destino, [_, _]).
+subdecision_tiempo_de_viaje(Destino, [1, 10], Score).
+subdecision_tiempo_de_viaje(Destino, [_, 10], Score).
+subdecision_tiempo_de_viaje(Destino, [1, _], Score).
+subdecision_tiempo_de_viaje(Destino, [_, _], Score).
 
-subdecision_condiciones_atmosfericas(Destino, [_]).
-subdecision_condiciones_atmosfericas(Destino, [mala]).
-subdecision_condiciones_atmosfericas(Destino, [buena, muy_buena]).
+subdecision_condiciones_atmosfericas(Destino, [_], Score).
+subdecision_condiciones_atmosfericas(Destino, [mala], Score).
+subdecision_condiciones_atmosfericas(Destino, [buena, muy_buena], Score).
 
-subdecision_presu(Destino, _).
-subdecision_presu(Destino, 1000000).
-subdecision_presu(Destino, 36000).
+subdecision_presu(Destino, _, Score).
+subdecision_presu(Destino, 1000000, Score).
+subdecision_presu(Destino, 36000, Score).
 
-subdecision_distancia(Destino, _).
-subdecision_distancia(Destino, 400000000).
+subdecision_distancia(Destino, _, Score).
+subdecision_distancia(Destino, 400000000, Score).
 
-subdecision_riesgos_ambientales(Destino, _).
-subdecision_riesgos_ambientales(Destino, con_riesgos).
-subdecision_riesgos_ambientales(Destino, sin_riesgos).
+subdecision_riesgos_ambientales(Destino, _, Score).
+subdecision_riesgos_ambientales(Destino, con_riesgos, Score).
+subdecision_riesgos_ambientales(Destino, sin_riesgos, Score).
 
-subdecision_habitabilidad(Destino, [_]).
-subdecision_habitabilidad(Destino, [nula]).
-subdecision_habitabilidad(Destino, [regular, buena, asiyugqwi]).
+subdecision_habitabilidad(Destino, [_], Score).
+subdecision_habitabilidad(Destino, [nula], Score).
+subdecision_habitabilidad(Destino, [regular, buena, asiyugqwi], Score).
 
-subdecision_size(Destino, [_]).
-subdecision_size(Destino, [pequeno]).
-subdecision_size(Destino, [pequeno, mediano]).
+subdecision_size(Destino, [_], Score).
+subdecision_size(Destino, [pequeno], Score).
+subdecision_size(Destino, [pequeno, mediano], Score).
 
-subdecision_luminosidad(Destino, [_]).
-subdecision_luminosidad(Destino, [un_poco_oscuro]).
-subdecision_luminosidad(Destino, [aiushdsi]).
-subdecision_luminosidad(Destino, [totalmente_oscuro, un_poco_luminoso]).
+subdecision_luminosidad(Destino, [_], Score).
+subdecision_luminosidad(Destino, [un_poco_oscuro], Score).
+subdecision_luminosidad(Destino, [aiushdsi], Score).
+subdecision_luminosidad(Destino, [totalmente_oscuro, un_poco_luminoso], Score).
 
-subdecision_biodiversidad(Destino, [_]).
-subdecision_biodiversidad(Destino, [nada_biodiverso]).
-subdecision_biodiversidad(Destino, [muy_biodiverso, biodiverso]).
+subdecision_biodiversidad(Destino, [_], Score).
+subdecision_biodiversidad(Destino, [nada_biodiverso], Score).
+subdecision_biodiversidad(Destino, [muy_biodiverso, biodiverso], Score).
 
-subdecision_composicion(Destino, [_]).
-subdecision_composicion(Destino, [rocoso]).
-subdecision_composicion(Destino, [gaseoso, arenoso]).
+subdecision_composicion(Destino, [_], Score).
+subdecision_composicion(Destino, [rocoso], Score).
+subdecision_composicion(Destino, [gaseoso, arenoso], Score).
 
-subdecision_atmosfera(Destino, _).
-subdecision_atmosfera(Destino, con_atmosfera).
-subdecision_atmosfera(Destino, sin_atmosfera).
+subdecision_atmosfera(Destino, _, Score).
+subdecision_atmosfera(Destino, con_atmosfera, Score).
+subdecision_atmosfera(Destino, sin_atmosfera, Score).
 
-subdecision_radiacion(Destino, [_]).
-subdecision_radiacion(Destino, [nula]).
-subdecision_radiacion(Destino, [nula, baja, moderada]).
+subdecision_radiacion(Destino, [_], Score).
+subdecision_radiacion(Destino, [nula], Score).
+subdecision_radiacion(Destino, [nula, baja, moderada], Score).
 
-subdecision_satelites(Destino, [_]).
-subdecision_satelites(Destino, [ninguno]).
-subdecision_satelites(Destino, [muchos, algunos]).
+subdecision_satelites(Destino, [_], Score).
+subdecision_satelites(Destino, [ninguno], Score).
+subdecision_satelites(Destino, [muchos, algunos], Score).
 
 
-decision([[_, _], [_], [_, _], [_], _, _, _, [_], [_], [_], [_], [_], _, [_], [_]], Destino).
-decision([[_, _], [mucho_frio], [_, _], [_], _, _, _, [_], [_], [_], [_], [_], _, [_], [_]], Destino).
-decision([[1, 3], [mucho_frio], [_, _], [_], _, _, _, [_], [_], [_], [_], [_], _, [_], [_]], Destino).
-decision([[1, 10], [_], [5, 10], [_], _, _, _, [_], [_], [_], [_], [_], _, [_], [_]], Destino).
+decision([[_, _], 
+[_], 
+[_, _], 
+[_], 
+_, 
+_, 
+_, 
+[_], 
+[_], 
+[_], 
+[_], 
+[_], 
+_, 
+[_], 
+[_]], 
+Destino, 
+Score).
+
+decision([[_, _], 
+[mucho_frio], 
+[_, _], 
+[_], 
+_, 
+_, 
+_, 
+[_], 
+[_], 
+[_], 
+[_], 
+[_], 
+_, 
+[_], 
+[_]], 
+Destino,
+Score).
+
+decision([[1, 3], 
+[mucho_frio], 
+[_, _], 
+[_], 
+_, 
+_, 
+_, 
+[_], 
+[_], 
+[_], 
+[_], 
+[_], 
+_, 
+[_], 
+[_]], 
+Destino,
+Score).
+
+decision([[1, 10], 
+[_], 
+[5, 10], 
+[_], 
+_, 
+_, 
+_, 
+[_], 
+[_], 
+[_], 
+[_], 
+[_], 
+_, 
+[_], 
+[_]], 
+Destino,
+Score).
